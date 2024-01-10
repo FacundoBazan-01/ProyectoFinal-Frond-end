@@ -23,7 +23,7 @@ const NavbarC = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="/sobreNosotros">Sobre Nosotros</Nav.Link>
+            <Nav.Link href="/destacados">Destacados</Nav.Link>
             <Nav.Link href="/contact">Contacto</Nav.Link>
           </Nav>
           <Form className="d-flex">
