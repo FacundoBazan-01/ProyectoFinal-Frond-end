@@ -1,5 +1,5 @@
 import CarouselC from "../components/CarouselC";
-import ProductosC from "../components/ProductosC";
+import ProductsC from "../components/ProductsC";
 
 const HomePage = () => {
   const urlImage =
@@ -9,7 +9,7 @@ const HomePage = () => {
     <>
       <h1>HomePage</h1>
       <CarouselC urlImage={urlImage} />
-      <ProductosC />
+      <ProductsC />
     </>
   );
 };

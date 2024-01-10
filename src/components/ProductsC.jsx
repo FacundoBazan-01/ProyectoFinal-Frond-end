@@ -2,16 +2,16 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 
-const ProductosC = () => {
-  // Lista de productos (puedes reemplazarla con tus propios datos)
-  const productos = [
+const ProductsC = () => {
+  // Lista de products (puedes reemplazarla con tus propios datos)
+  const products = [
     { id: 1, name: "Producto 1", price: "$10" },
     { id: 2, name: "Producto 2", price: "$15" },
     { id: 3, name: "Producto 3", price: "$10" },
     { id: 4, name: "Producto 4", price: "$15" },
     { id: 5, name: "Producto 5", price: "$10" },
     { id: 6, name: "Producto 6", price: "$15" },
-    // ... más productos
+    // ... más products
   ];
 
   // Función para manejar el click en el botón de favoritos
@@ -26,9 +26,9 @@ const ProductosC = () => {
     console.log(`Producto ${productId} añadido al carrito`);
   };
 
-  // Renderizar los productos
+  // Renderizar los products
   const renderProducts = () => {
-    return productos.map((product) => (
+    return products.map((product) => (
       <Col key={product.id} xs={6} md={4} lg={3} xl={2} className="mb-3">
         <div className="border p-3">
           <h4>{product.name}</h4>
@@ -60,4 +60,4 @@ const ProductosC = () => {
   );
 };
 
-export default ProductosC;
+export default ProductsC;
