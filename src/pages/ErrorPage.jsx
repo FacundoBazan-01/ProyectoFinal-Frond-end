@@ -1,9 +1,5 @@
-import React from 'react'
+const ErrorPage = () => {
+  return <div>Error 404, vuelva prontos</div>;
+};
 
-const ErrorPAge = () => {
-  return (
-    <div>ErrorPAge</div>
-  )
-}
-
-export default ErrorPAge
+export default ErrorPage;
