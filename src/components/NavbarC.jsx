@@ -10,7 +10,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { IoMdHelpCircle } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { MdFavorite } from "react-icons/md";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { GiOppositeHearts } from "react-icons/gi";
 
 import "../css/NavbarC.css";
 
@@ -18,13 +18,21 @@ const NavbarC = () => {
   return (
     <Navbar expand="lg" className="bg-personalizado">
       <Container fluid>
-        <Navbar.Brand href="/">Logo</Navbar.Brand>
+        <Nav.Link href="/">
+          <GiOppositeHearts className="logoCorazones" />
+        </Nav.Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="/destacados">Destacados</Nav.Link>
-            <Nav.Link href="/contact">Contacto</Nav.Link>
+            <Nav.Link href="/" className="botonNav">
+              Inicio
+            </Nav.Link>
+            <Nav.Link href="/destacados" className="botonNav">
+              Destacados
+            </Nav.Link>
+            <Nav.Link href="/contact" className="botonNav">
+              Contacto
+            </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
@@ -57,8 +65,12 @@ const NavbarC = () => {
             <Nav.Link href="*">
               <IoMdHelpCircle />
             </Nav.Link>
-            <Nav.Link href="/iniciarSesion">Iniciar Sesión</Nav.Link>
-            <Nav.Link href="/register">Registrarse</Nav.Link>
+            <Nav.Link href="/iniciarSesion" className="botonNav">
+              Iniciar Sesión
+            </Nav.Link>
+            <Nav.Link href="/register" className="botonNav">
+              Registrarse
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
