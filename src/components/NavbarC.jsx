@@ -46,13 +46,13 @@ const NavbarC = () => {
             </Button>
           </Form>
           <Nav className="ms-auto">
-            <Nav.Link href="https://facebook.com">
+            <Nav.Link href="https://facebook.com" classname="botonRedes">
               <FaFacebook />
             </Nav.Link>
-            <Nav.Link href="https://twitter.com">
+            <Nav.Link href="https://twitter.com" classname="botonRedes">
               <FaTwitter />
             </Nav.Link>
-            <Nav.Link href="https://instagram.com">
+            <Nav.Link href="https://instagram.com" classname="botonRedes">
               <FaInstagram />
             </Nav.Link>
 
