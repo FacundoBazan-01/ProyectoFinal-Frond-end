@@ -11,7 +11,7 @@ const HomePage = () => {
 			id: 1,
 			nombre: "Camisa blanca",
 			precio: "$4800",
-			img: "../helps/imagenesProductos/producto_N°1.jpg",
+			img: "https://static.zara.net/photos///2023/V/0/1/p/3067/365/423/2/w/750/3067365423_1_1_1.jpg?ts=1680175931977",
 		},
 		{
 			id: 2,
