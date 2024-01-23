@@ -1,3 +1,8 @@
 .card-class  {
     width: 18rem ;
 }
+.btn-outline-detail {
+    background-color: blueviolet;
+    color: aliceblue;
+    
+}
