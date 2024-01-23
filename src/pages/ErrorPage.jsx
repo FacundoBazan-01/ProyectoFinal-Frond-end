@@ -1,5 +1,5 @@
-const Error404Page = () => {
+const ErrorPage = () => {
   return <div>Error 404, vuelva prontos</div>;
 };
 
-export default Error404Page;
+export default ErrorPage;
