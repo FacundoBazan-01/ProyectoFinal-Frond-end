@@ -87,7 +87,7 @@ const HomePage = () => {
 			<div className='container mt-5 mb-5   '>
 				<div className='row '>
 					{arrayProductos.map((producto) => (
-						<CardsC producto={producto} />
+						<CardsC producto={producto} key={producto._id} />
 					))}
 
 					<div className='col-md-12'>
