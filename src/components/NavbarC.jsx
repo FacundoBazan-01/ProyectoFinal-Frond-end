@@ -11,7 +11,6 @@ import { IoMdHelpCircle } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { MdFavorite } from "react-icons/md";
 import { GiOppositeHearts } from "react-icons/gi";
-
 import "../css/NavbarC.css";
 
 const NavbarC = () => {
