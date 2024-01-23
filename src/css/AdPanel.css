@@ -1,0 +1,22 @@
+/* AdPanel.css */
+.ad-panel {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ad-image {
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  max-height: 200px; /* Ajusta la altura máxima según sea necesario */
+  object-fit: cover; /* Ajusta el modo de ajuste según sea necesario */
+  margin-bottom: 10px;
+}
+
+.ad-content {
+  text-align: center;
+}
+
+/* Puedes agregar más estilos según tus necesidades */
