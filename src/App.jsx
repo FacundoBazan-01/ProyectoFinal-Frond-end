@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import NavbarC from "./components/NavbarC";
-import ErrorPage from "./pages/ErrorPage";
+import ErrorPage from "./pages/ErrorPage404";
 import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -21,5 +21,6 @@ const App = () => {
 			<Footer />
 		</>
 	);
+
 };
 export default App;
