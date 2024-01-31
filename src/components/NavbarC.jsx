@@ -48,10 +48,10 @@ const NavbarC = () => {
               <FaInstagram />
             </Nav.Link>
 
-            <Nav.Link href="*" className="-badge-">
+            <Nav.Link href="/fav" className="-badge-">
               <MdFavorite />
             </Nav.Link>
-            <Nav.Link href="*" className="-badge-">
+            <Nav.Link href="/cart" className="-badge-">
               <FaCartShopping />
             </Nav.Link>
             <Nav.Link href="*">
