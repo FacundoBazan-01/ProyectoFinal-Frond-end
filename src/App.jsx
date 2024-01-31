@@ -1,6 +1,5 @@
 import Footer from "./components/Footer";
 import NavbarC from "./components/NavbarC";
-import CartPage from "./pages/CartPage";
 import Error404Page from "./pages/Error404Page";
 import FavPage from "./pages/FavPage";
 import HomePage from "./pages/HomePage";
@@ -19,7 +18,6 @@ const App = () => {
           <Route path="*" element={<Error404Page/>} />
           <Route path="/fav" element={<FavPage/>} />
           <Route path='/producto' element={<ProductoPage />} />
-          <Route path="/cart" element={<CartPage/>} />
         </Routes>
       </BrowserRouter>
       <Footer />
