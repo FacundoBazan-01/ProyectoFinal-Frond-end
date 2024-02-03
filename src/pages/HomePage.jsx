@@ -3,6 +3,7 @@ import CarouselC from "../components/CarouselC";
 import AdPanel from "../components/AdPanel";
 import "../css/Cards.css";
 
+
 const HomePage = () => {
 	const urlImageHomePage =
 		"https://static.zara.net/photos///2023/S/0/1/p/4051/016/250/2/w/563/4051016250_6_1_1.jpg?ts=1690214267705";

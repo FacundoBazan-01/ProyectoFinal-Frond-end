@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/producto' element={<ProductoPage />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
+
     </>
   );
 };
