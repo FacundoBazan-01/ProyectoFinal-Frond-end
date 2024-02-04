@@ -1,4 +1,4 @@
-import Footer from "./components/Footer";
+import FooterC from "./components/FooterC";
 import NavbarC from "./components/NavbarC";
 import Error404Page from "./pages/Error404Page";
 import FavPage from "./pages/FavPage";
@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/producto' element={<ProductoPage />} />
         </Routes>
       </BrowserRouter>
-
+      <FooterC/>
     </>
   );
 };
