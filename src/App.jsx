@@ -9,19 +9,18 @@ import ProductoPage from "./pages/ProductoPage";
 
 const App = () => {
   return (
-    <>
-      <NavbarC />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="*" element={<Error404Page/>} />
-          <Route path="/fav" element={<FavPage/>} />
-          <Route path='/producto' element={<ProductoPage />} />
-        </Routes>
-      </BrowserRouter>
-
-    </>
-  );
+		<>
+			<NavbarC />
+			<BrowserRouter>
+				<Routes>
+					<Route path='/' element={<HomePage />} />
+					<Route path='/register' element={<RegisterPage />} />
+					<Route path='*' element={<Error404Page />} />
+					<Route path='/fav' element={<FavPage />} />
+					<Route path='/producto/:id' element={<ProductoPage />} />
+				</Routes>
+			</BrowserRouter>
+		</>
+	);
 };
 export default App;

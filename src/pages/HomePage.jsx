@@ -2,6 +2,7 @@ import CardsC from "../components/CardsC";
 import CarouselC from "../components/CarouselC";
 import AdPanel from "../components/AdPanel";
 import "../css/Cards.css";
+import "../pages/ProductoPage";
 
 
 const HomePage = () => {
