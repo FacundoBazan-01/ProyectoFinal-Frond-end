@@ -78,7 +78,7 @@ const arrayProductos = [
     img: "https://trello.com/1/cards/659c9c8986f17124996cf8ba/attachments/659c9ccc85db741c6d1aba8d/previews/659c9ccd85db741c6d1abaff/download/2131231250_2_1_1.jpg",
   },
 ];
-const ProductPage = () => {
+const ProductoPage = () => {
   const params= useParams();
   const [producto,setProducto] = useState ();
 
@@ -109,4 +109,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductoPage;

@@ -10,8 +10,8 @@ const DetalleCard= ({ producto }) => {
 	
 	return (
 		<>
-		<div className='col-12 col-md-6 col-lg-4 detallesCard'>
-			<Card className='card-class mb-5 mx-auto '>
+		<div className='col-12 col-md-6 col-lg-4 '>
+			<Card className='card-class mb-5 mt-5'>
 				<Card.Img variant='top' src={img} />
 				<Card.Body>
 					<Card.Title>{nombre}</Card.Title>

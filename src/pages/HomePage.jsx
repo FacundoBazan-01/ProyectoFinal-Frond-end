@@ -2,7 +2,7 @@ import CardsC from "../components/CardsC";
 import CarouselC from "../components/CarouselC";
 import AdPanel from "../components/AdPanel";
 import "../css/Cards.css";
-import "../pages/ProductPage";
+import "../pages/ProductoPage";
 
 
 const HomePage = () => {
@@ -93,7 +93,7 @@ const HomePage = () => {
 					))}
 
 					<div className='col-md-12'>
-						<AdPanel /> {/* Agrega el panel de publicidad en el lateral */}
+						<AdPanel /> {}
 					</div>
 				</div>
 			</div>
