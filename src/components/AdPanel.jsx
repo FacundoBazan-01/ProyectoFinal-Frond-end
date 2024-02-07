@@ -1,4 +1,4 @@
-// AdPanel.js
+
 import React from "react";
 import "../css/AdPanel.css";
 
