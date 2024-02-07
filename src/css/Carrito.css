@@ -1,0 +1,24 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .btn-tarjeta {
+    background-color: blue;
+    color: white;
+  }
+  
+  .btn-mercado-pago {
+    background-color: green;
+    color: white;
+  }
