@@ -1,4 +1,4 @@
-// AdPanel.js
+
 import React from "react";
 import "../css/AdPanel.css";
 
@@ -6,13 +6,13 @@ const AdPanel = () => {
 	return (
 		<div className='ad-panel'>
 			<img
-				src='https://portsaid.vtexassets.com/arquivos/ids/372657/AP332080_PS_1.jpg?v=638358308542170000'
+				src='https://trello.com/1/cards/659c9c8986f17124996cf8ba/attachments/65c3c0156deefe5ea08b6dd2/download/222.jpg'
 				alt='Publicidad'
 				className='ad-image'
 			/>
 			<div className='ad-content'>
 				<h3>¡Descuentos exclusivos!</h3>
-				<p>No te pierdas nuestras ofertas especiales.</p>
+				<p>No te pierdas nuestras ofertas Adidas</p>
 			</div>
 		</div>
 	);

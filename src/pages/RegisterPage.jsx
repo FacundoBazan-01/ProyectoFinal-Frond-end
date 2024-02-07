@@ -1,32 +1,30 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import NavbarC from "../components/NavbarC";
-import CarouselC from "../components/CarouselC";
+
 
 const RegisterPage = () => {
-  const urlImageReg =
-    "https://static.zara.net/photos///2023/V/0/1/p/6895/049/251/2/w/960/6895049251_9_1_1.jpg?ts=1680511374372";
+  
   return (
 		<>
-			<CarouselC urlImage={urlImageReg} />
-
 			<h2>Registrarse</h2>
 			<Form>
 				<Form.Group className='mb-3' controlId='formBasicEmail'>
+					<Form.Label>Usuario</Form.Label>
+					<Form.Control type='usuario' placeholder='usuario' />
+				</Form.Group>
+				<Form.Group className='mb-3' controlId='formBasicEmail'>
 					<Form.Label>Email</Form.Label>
-					<Form.Control type='email' placeholder='Enter email' />
+					<Form.Control type='email' placeholder='email' />
 				</Form.Group>
 
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
 					<Form.Label>Contraseña</Form.Label>
-					<Form.Control type='password' placeholder='Password' />
+					<Form.Control type='contraseña' placeholder='constraseña' />
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
 					<Form.Label>Confirmar constraseña</Form.Label>
-					<Form.Control type='password' placeholder='Password' />
-				</Form.Group>
-				<Form.Group className='mb-3' controlId='formBasicCheckbox'>
-					<Form.Check type='checkbox' label='Check me out' />
+					<Form.Control type='confirmar contraseña' placeholder='contraseña' />
 				</Form.Group>
 				<Button variant='primary' type='submit'>
 					Enviar
