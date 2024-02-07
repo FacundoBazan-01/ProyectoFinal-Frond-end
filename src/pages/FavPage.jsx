@@ -3,6 +3,10 @@ import "../css/Cards.css";
 
 
 const FavPage = () => {
+
+	// const [favoritos, setFavoritos] = useState([]);
+	
+	
 	const arrayProductos = [
 		{
 			id: 1,
