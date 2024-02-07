@@ -93,7 +93,7 @@ const HomePage = () => {
 					))}
 
 					<div className='col-md-12'>
-						<AdPanel /> {/* Agrega el panel de publicidad en el lateral */}
+						<AdPanel /> {}
 					</div>
 				</div>
 			</div>
