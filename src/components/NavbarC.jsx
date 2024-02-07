@@ -29,9 +29,6 @@ const NavbarC = () => {
             <Nav.Link href="/destacados" className="botonNav">
               Destacados
             </Nav.Link>
-            <Nav.Link href="/contact" className="botonNav">
-              Contacto
-            </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl

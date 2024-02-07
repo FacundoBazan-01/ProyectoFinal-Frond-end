@@ -1,8 +1,8 @@
 
-const ProductoPage = () => {
+ const ProductoPage = () => {
   return (
     <div>ProductoPage</div>
   )
 }
 
-export default ProductoPage
+export default ProductoPage 
