@@ -26,21 +26,8 @@ const NavbarC = () => {
 						<Nav.Link href='/' className='botonNav'>
 							Inicio
 						</Nav.Link>
-						<Nav.Link href='/destacados' className='botonNav'>
-							Destacados
-						</Nav.Link>
 					</Nav>
-					<Form className='d-flex'>
-						<FormControl
-							type='search'
-							placeholder='Buscar'
-							className='mr-2'
-							aria-label='Buscar'
-						/>
-						<Button variant='outline-dark' className='ms-2'>
-							Buscar
-						</Button>
-					</Form>
+				
 					<Nav className='ms-auto'>
 						<Nav.Link href='https://facebook.com' classname='botonRedes'>
 							<FaFacebook />
@@ -58,9 +45,7 @@ const NavbarC = () => {
 						<Nav.Link href='/cart' className='-badge-'>
 							<FaCartShopping />
 						</Nav.Link>
-						<Nav.Link href='*'>
-							<IoMdHelpCircle />
-						</Nav.Link>
+	
 						<Nav.Link href='/login' className='botonNav'>
 							Iniciar Sesión
 						</Nav.Link>
