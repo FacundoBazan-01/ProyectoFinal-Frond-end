@@ -9,20 +9,20 @@ const RegisterPage = () => {
 		<>
 			<h2>Registrarse</h2>
 			<Form>
-				<Form.Group className='mb-3 register' controlId='formBasicEmail'>
+				<Form.Group className='mb-3' controlId='formBasicEmail'>
 					<Form.Label>Usuario</Form.Label>
 					<Form.Control type='usuario' placeholder='usuario' />
 				</Form.Group>
-				<Form.Group className='mb-3 register' controlId='formBasicEmail'>
+				<Form.Group className='mb-3' controlId='formBasicEmail'>
 					<Form.Label>Email</Form.Label>
 					<Form.Control type='email' placeholder='email' />
 				</Form.Group>
 
-				<Form.Group className='mb-3 register' controlId='formBasicPassword'>
+				<Form.Group className='mb-3' controlId='formBasicPassword'>
 					<Form.Label>Contraseña</Form.Label>
 					<Form.Control type='contraseña' placeholder='constraseña' />
 				</Form.Group>
-				<Form.Group className='mb-3 register' controlId='formBasicPassword'>
+				<Form.Group className='mb-3' controlId='formBasicPassword'>
 					<Form.Label>Confirmar constraseña</Form.Label>
 					<Form.Control type='confirmar contraseña' placeholder='contraseña' />
 				</Form.Group>
