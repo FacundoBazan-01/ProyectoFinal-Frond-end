@@ -62,8 +62,8 @@ const LoginPage = () => {
 	};
 	return (
 		<>
-			<h2>Iniciar sesión</h2>
-			<Form>
+			<h2 className='tituloRegistro'>Iniciar sesión</h2>
+			<Form className='estiloForm'>
 				<Form.Group className='mb-3' controlId='formBasicEmail'>
 					<Form.Label>Usuario</Form.Label>
 					<Form.Control
@@ -99,7 +99,12 @@ const LoginPage = () => {
 						<p className='text-danger'>¡Campo vacio!</p>
 					)}
 				</Form.Group>
-				<Button variant='primary' type='submit' onClick={handleClick}>
+				<Button
+					variant='primary'
+					type='submit'
+					onClick={handleClick}
+					className='button-violet'
+				>
 					Enviar
 				</Button>
 			</Form>
