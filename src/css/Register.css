@@ -1,33 +1,4 @@
-/* .button-violet {
-    background-color: rgb(133, 85, 133);
-    color: white; 
-    border: none; 
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-    width: auto;
-}
 
-.button-violet:hover {
-    background-color: rgb(169, 19, 234); 
-}
-
-.tituloRegistro {
-    margin-top: 30px;
-    text-align: center;
-    font-family: sans-serif;
-     font-weight: bold;
-}
-
-.estiloForm {
-       margin-left: 250px;
-      margin-right: 250px;
-  
-    
- font-weight: bold;
-
-} */
 
 .button-violet {
     background-color: rgb(133, 85, 133);
@@ -36,7 +7,7 @@
     margin-top: 15px;
     display: block;
     margin: 0 auto;
-    width: 150px; /* Puedes ajustar el tamaño según tus necesidades */
+    width: 150px; 
 }
 
 .button-violet:hover {
