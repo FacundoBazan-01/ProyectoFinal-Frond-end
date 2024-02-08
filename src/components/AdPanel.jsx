@@ -11,8 +11,8 @@ const AdPanel = () => {
 				className='ad-image'
 			/>
 			<div className='ad-content'>
-				<h3>¡Descuentos exclusivos!</h3>
-				<p>No te pierdas nuestras ofertas Adidas</p>
+				<h3>¡No te lo pierdas! Adidas te espera :D</h3>
+				<p>Grandes ofertas todos los dias</p>
 			</div>
 		</div>
 	);
