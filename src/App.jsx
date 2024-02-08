@@ -21,9 +21,6 @@ const App = () => {
 					<Route path='/fav' element={<FavPage />} />
 					<Route path='/producto/:id' element={<ProductoPage />} />
 					<Route path='/cart' element={<CarritoPage />} />
-
-					 <Route path='/admin-user' element={<AdminUserPage />} />
-					<Route path='/admin-prod' element={<AdminProductsPage />} /> 
 				</Routes>
 			</BrowserRouter>
 			<FooterC />
