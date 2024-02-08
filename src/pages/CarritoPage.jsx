@@ -32,6 +32,7 @@ const CarritoPage = () => {
     <div>
       <h2 style={{textAlign: 'center'}}>Carrito</h2>
       <hr />
+      <div className="table-container">
       <table className="carrito">
         <thead>
           <tr>
@@ -54,6 +55,8 @@ const CarritoPage = () => {
           ))}
         </tbody>
       </table>
+      </div>
+      
       <h3 style={{textAlign: 'center'}}>Total: ${calcularTotal()}</h3>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
