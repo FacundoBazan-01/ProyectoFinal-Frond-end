@@ -26,6 +26,7 @@ const App = () => {
 					<Route path='/admin-prod' element={<AdminProductsPage />} />
 				</Routes>
 			</BrowserRouter>
+			<Footer/>
 		</>
 	);
 };
