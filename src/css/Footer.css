@@ -38,3 +38,11 @@
         flex-direction: column;
     }
 }
+
+.footer-color {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  

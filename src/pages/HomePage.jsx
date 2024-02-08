@@ -17,7 +17,7 @@ const HomePage = () => {
 			id: 1,
 			nombre: "Camisa blanca",
 			precio: "$4800",
-			img: "../helps/imagenesProductos/producto_N°1.jpg",
+			img: "https://trello.com/1/cards/659c9c8986f17124996cf8ba/attachments/659c9cd85d82659c6ac98a29/previews/659c9cd95d82659c6ac98ed6/download/8372060250_2_1_1.jpg",
 		},
 		{
 			id: 2,
