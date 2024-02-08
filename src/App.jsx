@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductoPage from "./pages/ProductoPage";
 import CarritoPage from './pages/CarritoPage';
 import LoginPage from './pages/LoginPage';
-
+import FooterC from "./components/FooterC";
 const App = () => {
   return (
 		<>
@@ -22,11 +22,10 @@ const App = () => {
 					<Route path='/fav' element={<FavPage />} />
 					<Route path='/producto/:id' element={<ProductoPage />} />
 					<Route path='/cart' element={<CarritoPage />} />
-					<Route path='/admin-user' element={<AdminUserPage />} />
-					<Route path='/admin-prod' element={<AdminProductsPage />} />
+					
 				</Routes>
 			</BrowserRouter>
-			
+			<FooterC/>
 		</>
 	);
 };
