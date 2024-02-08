@@ -1,0 +1,13 @@
+.button-violet {
+    background-color: rgb(133, 85, 133);
+    color: white; 
+    border: none; 
+    margin-top: 15px;
+    display: block;
+    margin: 0 auto;
+    width: 150px; 
+}
+
+.button-violet:hover {
+    background-color: rgb(169, 19, 234); 
+}

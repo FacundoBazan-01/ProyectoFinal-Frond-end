@@ -1,8 +1,33 @@
-.mb-3 {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+
+.button-violet {
+    background-color: rgb(133, 85, 133);
+    color: white; 
+    border: none; 
+    margin-top: 15px;
+    display: block;
+    margin: 0 auto;
+    width: 150px; 
+}
+
+.button-violet:hover {
+    background-color: rgb(169, 19, 234); 
+}
+
+.tituloRegistro {
+    margin-top: 30px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.estiloForm {
+    margin-top: 50px; 
+   margin-bottom: 50px ;
+    width: 40%; 
+    margin: 0 auto; 
+    padding: 20px 30px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-weight: bold;
 }
