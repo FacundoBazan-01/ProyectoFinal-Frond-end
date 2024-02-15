@@ -23,7 +23,7 @@ const App = () => {
 					<Route path='/cart' element={<CarritoPage />} />
 				</Routes>
 			</BrowserRouter>
-			<FooterC />
+			
 		</>
 	);
 };
