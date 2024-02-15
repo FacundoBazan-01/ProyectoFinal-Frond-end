@@ -11,7 +11,7 @@ const ProductoPage = () => {
   const prodFilter = arrayProductos.filter((producto) => producto.id === Number(id));
 
   const agregarProducto = (id) => {
-    // ... (tu lógica de agregar al carrito)
+
   };
 
   const ToggleButtonGroupControlled = () => {
@@ -58,7 +58,7 @@ const ProductoPage = () => {
                     </div>
                   </ToggleButtonGroup>
                   </div>
-                 
+                
                   <div className='text-center mt-5 '>
                     <button className='btn estilo-botonAñadir1 me-2' onClick={() => agregarProducto(producto.id)}>Añadir al carrito</button>
                     <button className='btn estilo-botonAñadir2'>Añadir a favoritos</button>
