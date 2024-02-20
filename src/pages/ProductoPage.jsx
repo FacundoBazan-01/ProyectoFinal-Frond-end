@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import "../css/Producto.css";
+import NavbarC from "../components/NavbarC";
 
 const ProductoPage = () => {
   const params = useParams();
@@ -11,7 +12,8 @@ const ProductoPage = () => {
   const prodFilter = arrayProductos.filter((producto) => producto.id === Number(id));
 
   const agregarProducto = (id) => {
-
+    const cartLs = JSON.parse(localStorage.getItem("cart"))|| [];
+    const usuarioLs = JSON.parse(localStorage.getItem("user"))
   };
 
   const ToggleButtonGroupControlled = () => {

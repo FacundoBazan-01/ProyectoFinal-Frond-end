@@ -24,8 +24,8 @@ import {
 		   localStorage.removeItem("usuario")
 		   localStorage.setItem("usuarios", JSON.stringify(usuarios))
 		   setTimeout(() => {
-			  location.href = "/"; 
-			   
+			  location.href = "/";
+			  
 		   }, 1000);
 	  };
   
@@ -44,13 +44,13 @@ import {
 					  </Nav>
 				  
 					  <Nav className='ms-auto'>
-						  <Nav.Link href='https://facebook.com' classname='botonRedes'>
+						  <Nav.Link href='https://facebook.com' className='botonRedes'>
 							  <FaFacebook />
 						  </Nav.Link>
-						  <Nav.Link href='https://twitter.com' classname='botonRedes'>
+						  <Nav.Link href='https://twitter.com' className='botonRedes'>
 							  <FaTwitter />
 						  </Nav.Link>
-						  <Nav.Link href='https://instagram.com' classname='botonRedes'>
+						  <Nav.Link href='https://instagram.com' classame='botonRedes'>
 							  <FaInstagram />
 						  </Nav.Link>
   
