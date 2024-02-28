@@ -12,8 +12,7 @@ const ProductoPage = () => {
   const prodFilter = arrayProductos.filter((producto) => producto.id === Number(id));
 
   const agregarProducto = (id) => {
-    const cartLs = JSON.parse(localStorage.getItem("cart"))|| [];
-    const usuarioLs = JSON.parse(localStorage.getItem("user"))
+   
   };
 
   const ToggleButtonGroupControlled = () => {

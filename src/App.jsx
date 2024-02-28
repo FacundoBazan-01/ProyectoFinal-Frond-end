@@ -8,7 +8,7 @@ import ProductoPage from "./pages/ProductoPage";
 import CarritoPage from "./pages/CarritoPage";
 import LoginPage from "./pages/LoginPage";
 import FooterC from "./components/FooterC";
-import UserPage from "./components/userPage";
+
 const App = () => {
 	return (
 		<>
@@ -22,7 +22,7 @@ const App = () => {
 					<Route path='/fav' element={<FavPage />} />
 					<Route path='/producto/:id' element={<ProductoPage />} />
 					<Route path='/cart' element={<CarritoPage />} />
-					<Route path='/usuario' element={<UserPage />} />
+					
 				</Routes>
 			</BrowserRouter>
 			
