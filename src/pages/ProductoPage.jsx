@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import "../css/Producto.css";
+import NavbarC from "../components/NavbarC";
 
 const ProductoPage = () => {
   const params = useParams();
@@ -11,7 +12,7 @@ const ProductoPage = () => {
   const prodFilter = arrayProductos.filter((producto) => producto.id === Number(id));
 
   const agregarProducto = (id) => {
-    // ... (tu lógica de agregar al carrito)
+
   };
 
   const ToggleButtonGroupControlled = () => {
@@ -23,7 +24,7 @@ const ProductoPage = () => {
       <React.Fragment>
         {
           prodFilter.map((producto) =>
-            <div className='container mt-5' key={producto.id}>
+            <div className='container my-5' key={producto.id}>
               <div className='row justify-content-center'>
                 <div className='col-12 col-sm-6 col-md-4 me-5'>
                   <img src={producto.img} alt="" className="img-fluid" />
@@ -58,7 +59,7 @@ const ProductoPage = () => {
                     </div>
                   </ToggleButtonGroup>
                   </div>
-                 
+                
                   <div className='text-center mt-5 '>
                     <button className='btn estilo-botonAñadir1 me-2' onClick={() => agregarProducto(producto.id)}>Añadir al carrito</button>
                     <button className='btn estilo-botonAñadir2'>Añadir a favoritos</button>
@@ -76,4 +77,3 @@ const ProductoPage = () => {
 };
 
 export default ProductoPage;
-

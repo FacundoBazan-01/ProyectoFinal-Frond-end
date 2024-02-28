@@ -1,43 +1,43 @@
 .borde-cuadro{
-    border: 1px solid black;
-    padding: 15px; 
-    font-family: "Raleway", sans-serif;
+  border: 1px solid black;
+  padding: 15px; 
+  font-family: "Raleway", sans-serif;
 }
 .titulo-mayuscula{
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 .color-precio{
-    color: #666;
+  color: #666;
 }
 .estilo-botones .btn {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    border: none;
-  }
-  
-  .estilo-botones .btn:hover {
-    background-color: black;
-    color: white;
-  }
-  .estilo-botonAñadir1 {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-  }
-  
-  .estilo-botonAñadir1:hover {
-    background-color: black;
-    color: white;
-  }
-  
-  .estilo-botonAñadir2 {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-  }
-  
-  .estilo-botonAñadir2:hover {
-    background-color: black;
-    color: white;
-  }
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border: none;
+}
+
+.estilo-botones .btn:hover {
+  background-color: black;
+  color: white;
+}
+.estilo-botonAñadir1 {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.estilo-botonAñadir1:hover {
+  background-color: black;
+  color: white;
+}
+
+.estilo-botonAñadir2 {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.estilo-botonAñadir2:hover {
+  background-color: black;
+  color: white;
+}
