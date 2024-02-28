@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductoPage from "./pages/ProductoPage";
 import CarritoPage from "./pages/CarritoPage";
 import LoginPage from "./pages/LoginPage";
-import FooterC from "./components/FooterC";
+
 const App = () => {
 	return (
 		<>
