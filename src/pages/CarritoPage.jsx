@@ -1,5 +1,21 @@
 import Table from "react-bootstrap/Table";
 
+const CarritoPage = () => {
+  const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const deleteProdCart = (id) => {
+    const confirmDeleteProductCart = confirm(
+      "Estas seguro de que quieres eliminar este producto del Carrito?"
+    );
+
+    if (confirmDeleteProductCart) {
+      const productFilterCart = cartLS.filter((prod) => prod.id !== id);
+      localStorage.setItem("cart", JSON.stringify(productFilterCart));
+      location.reload();
+    }
+  };
+
+
 
   return (
     <>
@@ -48,6 +64,6 @@ import Table from "react-bootstrap/Table";
       )}
     </>
   );
-
+};
 
 export default CarritoPage
