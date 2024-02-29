@@ -2,95 +2,100 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import NavbarC from "../components/NavbarC";
+import "../css/Register.css";
 
 
 const RegisterPage = () => {
-  /* A los estados puedo inicializarlos vacios o con algo en su interior, en este caso lo inicializamos con un obj para poder hacer las validaciones. Clase 31/10 */
-const [estado, setEstado]=useState({
-  usuario:"",
-  contrasenia:"",
-  rcontrasenia:"",
-});
+	const [estado, setEstado] = useState({
+		usuario: "",
+		contrasenia: "",
+		rcontrasenia: "",
+	});
 
-const changeValue = (ev)=>{
-  const {name, value} = ev.target
-  setEstado({...estado, [name]: value})
-}
+	const changeValue = (ev) => {
+		const { name, value } = ev.target;
+		setEstado({ ...estado, [name]: value });
+	};
 
-const handleClick = (ev)=>{
-ev.preventDefault();
+	const handleClick = (ev) => {
+		ev.preventDefault();
 
-const {usuario, contrasenia, rcontrasenia} = estado
-const usuarioLS = JSON.parse(localStorage.getItem("Usuarios")) || [];
+		const { usuario, contrasenia, rcontrasenia } = estado;
+		const usuarioLS = JSON.parse(localStorage.getItem("Usuarios")) || [];
 
-if(!usuario || !contrasenia || ! rcontrasenia){
-  setEstado(()=>({
-    ...estado,
-    usuario: !estado.usuario ? "error" : "",
-    contrasenia: !estado.contrasenia ? "error" : "",
-    rcontrasenia: !estado.rcontrasenia ? "error" : "",
-  })); 
-}else{
-  if(contrasenia === rcontrasenia){
-    if(usuarioLS.length === 0 ){
-      const usuarioNuevo = {
-        id: 1,
-        nombre: usuario,
-        contrasenia: contrasenia,
-        role: "user",
-        login: true,
-        deleted:false,
-      };
-      usuarioLS.push(usuarioNuevo)
-      localStorage.setItem("Usuarios",JSON.stringify(usuarioLS));
-      localStorage.setItem("Usuario",JSON.stringify(usuarioNuevo))
-      alert("Usuario creado correctamente")
-      setTimeout(()=>{
-        const usuarioExist = usuarioLS.filter((usuario)=> usuario.nombre === estado.usuario)
-        if(usuarioExist[0].role === "Admin"){
-          location.href="/Admin"
-        }else{
-          location.href="/Usuario"
-        }
-      },1000)
+		if (!usuario || !contrasenia || !rcontrasenia) {
+			setEstado(() => ({
+				...estado,
+				usuario: !estado.usuario ? "error" : "",
+				contrasenia: !estado.contrasenia ? "error" : "",
+				rcontrasenia: !estado.rcontrasenia ? "error" : "",
+			}));
+		} else {
+			if (contrasenia === rcontrasenia) {
+				if (usuarioLS.length === 0) {
+					const usuarioNuevo = {
+						id: 1,
+						nombre: usuario,
+						contrasenia: contrasenia,
+						role: "user",
+						login: true,
+						deleted: false,
+					};
+					usuarioLS.push(usuarioNuevo);
+					localStorage.setItem("Usuarios", JSON.stringify(usuarioLS));
+					localStorage.setItem("Usuario", JSON.stringify(usuarioNuevo));
+					alert("Usuario creado correctamente");
+					setTimeout(() => {
+						const usuarioExist = usuarioLS.filter(
+							(usuario) => usuario.nombre === estado.usuario
+						);
+						if (usuarioExist[0].role === "Admin") {
+							location.href = "/Admin";
+						} else {
+							location.href = "/Usuario";
+						}
+					}, 1000);
+				} else {
+					const usuarioLSFilter = usuarioLS.filter(
+						(usuario) => usuario.nombre === estado.usuario
+					);
+					if (usuarioLSFilter.length > 0) {
+						return alert("El usuario ya existe");
+					}
+					const usuarioNuevo = {
+						id: usuarioLS[usuarioLS.length - 1].id + 1,
+						nombre: usuario,
+						contrasenia: contrasenia,
+						role: "Admin",
+						login: true,
+						deleted: false,
+					};
+					usuarioLS.push(usuarioNuevo);
+					localStorage.setItem("Usuarios", JSON.stringify(usuarioLS));
+					localStorage.setItem("Usuario", JSON.stringify(usuarioNuevo));
+					alert("¡Usuario creado correctamente! Bienvenido");
+					setTimeout(() => {
+						const usuarioExist = usuarioLS.filter(
+							(usuario) => usuario.nombre === estado.usuario
+						);
+						if (usuarioExist[0].role === "Admin") {
+							location.href = "/Admin";
+						} else {
+							location.href = "/Usuario";
+						}
+					}, 1000);
+				}
+			} else {
+				alert("Las constraseñas no coinciden :(");
+			}
+		}
+	};
 
-    }else{
-      const usuarioLSFilter = usuarioLS.filter((usuario)=> usuario.nombre === estado.usuario)
-      if(usuarioLSFilter.length > 0){
-        return alert("El usuario ya existe")
-      }
-      const usuarioNuevo = {
-        id: usuarioLS[usuarioLS.length -1].id+1,
-        nombre: usuario,
-        contrasenia: contrasenia,
-        role: "Admin",
-        login: true,
-        deleted: false,
-      };
-      usuarioLS.push(usuarioNuevo)
-      localStorage.setItem("Usuarios",JSON.stringify(usuarioLS));
-      localStorage.setItem("Usuario",JSON.stringify(usuarioNuevo))
-      alert("¡Usuario creado correctamente! Bienvenido")
-      setTimeout(()=>{
-        const usuarioExist = usuarioLS.filter((usuario)=> usuario.nombre === estado.usuario)
-        if(usuarioExist[0].role === "Admin"){
-          location.href="/Admin"
-        }else{
-          location.href="/Usuario"
-        }
-      },1000)
-    }
-  }else{
-      alert("Las constraseñas no coinciden :(")
-    }
-}
-}
-
-
- return (
+	return (
 		<>
-			<h2>Registrarse</h2>
-			<Form>
+			<h2 className="tituloRegistro">Registrarse</h2>
+
+			<Form className="estiloForm">
 				<Form.Group className='mb-3' controlId='formBasicUser'>
 					<Form.Label>Usuario</Form.Label>
 					<Form.Control
@@ -144,13 +149,19 @@ if(!usuario || !contrasenia || ! rcontrasenia){
 					)}
 				</Form.Group>
 
-				<Button variant='primary' type='submit' onClick={handleClick}>
+				<Button
+					variant='primary'
+					type='submit'
+					onClick={handleClick}
+					className='button-violet'
+				>
 					Enviar
 				</Button>
 			</Form>
 		</>
- );
+	);
 }
+
 
 export default RegisterPage
 
