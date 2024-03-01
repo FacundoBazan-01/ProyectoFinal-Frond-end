@@ -1,72 +1,69 @@
-import React, { useState } from 'react';
-import "../css/Carrito.css";
+import Table from "react-bootstrap/Table";
 
 const CarritoPage = () => {
-  const [productos, setProductos] = useState([]);
+  const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
 
-  const [carrito, setCarrito] = useState([]);
+  const deleteProdCart = (id) => {
+    const confirmDeleteProductCart = confirm(
+      "Estas seguro de que quieres eliminar este producto del Carrito?"
+    );
 
-  //const getProdCart = async () => {
-    //const carts = await clienteAxios.get(`/carts`, configHeaders);
-    //setCarrito(carts.data.getCarts[0].productos);
-  //};
-
-  const eliminarDelCarrito = (id) => {
-    const nuevoCarrito = carrito.filter((producto) => producto.id !== id);
-    setCarrito(nuevoCarrito);
-  };
-
-  const calcularTotal = () => {
-    return carrito.reduce((total, producto) => total + producto.precio, 0);
-  };
-
-  const handlePago = (metodoPago) => {
-    if (metodoPago === 'tarjeta') {
-      alert('Pagando con tarjeta...');
-    } else if (metodoPago === 'mercadoPago') {
-      alert('Pagando con MercadoPago...');
+    if (confirmDeleteProductCart) {
+      const productFilterCart = cartLS.filter((prod) => prod.id !== id);
+      localStorage.setItem("cart", JSON.stringify(productFilterCart));
+      location.reload();
     }
   };
 
-  return (
-    <div>
-      <h2 style={{textAlign: 'center'}}>Carrito</h2>
-      <hr />
-      <div className="table-container">
-      <table className="carrito">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Imagen</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {carrito.map((producto) => (
-            <tr key={producto.id}>
-              <td className="producto-nombre">{producto.nombre}</td>
-              <td className="producto-precio">${producto.precio}</td>
-              <td className="producto-imagen"><img src={producto.img} alt="" style={{ maxWidth: '50px' }} /></td>
-              <td className="producto-accion">
-                <button onClick={() => eliminarDelCarrito(producto.id)}>Eliminar del carrito</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
-      
-      <h3 style={{textAlign: 'center'}}>Total: ${calcularTotal()}</h3>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-      <button onClick={() => handlePago('tarjeta')} className="btn btn-primary">Pagar con Tarjeta</button>
-      <button onClick={() => handlePago('mercadoPago')} className="btn btn-success">Pagar con MercadoPago</button>
-      </div>
 
-      </div>
-    </div>
+
+  return (
+    <>
+      {cartLS.length > 0 ? (
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Elimiar Productos Carrito</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartLS.map((producto) => (
+              <tr key={producto.id}>
+                <td>{producto.id}</td>
+                <td>{producto.nombre}</td>
+                <td>{producto.precio}</td>
+                <td>{producto.canti}</td>
+                <td>{producto.precio}</td>
+                <td>
+                  <input type="number" className="w-25" value={1} />
+                </td>
+                <td>
+                  <p>{producto.precio}</p>
+                </td>
+                <td className="d-flex justify-content-center">
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={() => deleteProdCart(producto.id)}
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <h1 className="text-center py-5">
+          No hay productos en el Carrito por el momento!!!
+        </h1>
+      )}
+    </>
   );
 };
 
-export default CarritoPage;
+export default CarritoPage
