@@ -3,7 +3,7 @@ import CardsC from "../components/CardsC";
 
 const FavPage = () => {
 
-  const favLS = JSON.parse(localStorage.getItem("favorite")) || [];
+  const favLS = JSON.parse(localStorage.getItem("favoritos")) || [];
 
   return (
     <>
@@ -17,7 +17,7 @@ const FavPage = () => {
             ))
           ) : (
             <h1 className="text-center py-5">
-              No hay productos en Favoritos por el momento!!!!
+              ¡No hay productos en Favoritos por el momento!
             </h1>
           )}
         </div>
