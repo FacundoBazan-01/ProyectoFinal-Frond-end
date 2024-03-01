@@ -119,7 +119,7 @@ const RegisterPage = () => {
 					<Form.Control
 						type='password'
 						placeholder='Ingrese contraseña'
-						name='contraseña'
+						name='contrasenia'
 						onChange={changeValue}
 						className={
 							estado.contrasenia === "error"
