@@ -3,6 +3,8 @@ import CardsC from "../components/CardsC";
 
 const FavPage = () => {
 
+  const favLS = JSON.parse(localStorage.getItem("favorite")) || [];
+
   return (
     <>
       <div className="container">
