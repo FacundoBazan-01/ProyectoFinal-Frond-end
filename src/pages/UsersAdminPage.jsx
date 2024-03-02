@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 
 const AdminUserPage = () => {
 
-    const arrarUsersLocalStorage = JSON.parse(localStorage.getItem('users')) || [];
+    const arrarUsersLocalStorage = JSON.parse(localStorage.getItem('Usuarios')) || [];
 
   return (
     <>
@@ -18,14 +18,22 @@ const AdminUserPage = () => {
         </tr>
       </thead>
       <tbody>
-        { arrarUsersLocalStorage.map((
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+        { arrarUsersLocalStorage.map((usuario) => (
+          <tr>
+          <td>{usuario.id}</td>
+          <td>{usuario.nombre}</td>
+          <td>{usuario.role}</td>
+          <td>
+            <button>
+
+            </button>
+            <button>
+              
+            </button>
+          </td>
         </tr>
-        ))}
+        )
+        )}
       </tbody>
     </Table>
 
