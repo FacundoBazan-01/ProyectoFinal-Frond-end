@@ -1,90 +1,113 @@
-import {useState} from 'react';
-import React from 'react'
+import { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-
-
 const AdminUserPage = () => {
+    const [users, setUsers] = useState(JSON.parse(localStorage.getItem('Usuarios')) || []);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
-    const arrarUsersLocalStorage = JSON.parse(localStorage.getItem('Usuarios')) || [];
+    const handleClose = () => {
+        setShowModal(false);
+        setSelectedUser(null); 
+    };
 
-    const [show, setShow] = useState(false);
-    
-    const [dataUser, setDataUser] = useState(false);
+    const handleShow = (usuario) => {
+        setSelectedUser(usuario);
+        setShowModal(true);
+    };
 
-    const handleClose = () => setShow(false);
-    const handleShow = (ev, usuario) => {
-      ev.preventDefault
-      setDataUser(usuario)
-      setShow(true);
-    }
-    
-  return (
-    <>
+    const handleChange = (ev) => {
+        setSelectedUser({ ...selectedUser, [ev.target.name]: ev.target.value });
+    };
 
-<Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Role</th>
-          <th>Eliminar/Editar</th>
-        </tr>
-      </thead>
-      <tbody>
-        { arrarUsersLocalStorage.map((usuario) => (
-          <tr key={usuario.id}>
-          <td>{usuario.id}</td>
-          <td>{usuario.nombre}</td>
-          <td>{usuario.role}</td>
-          <td>
-            <button className='btn estilo-botonAñadir1 mx-2'>
-              Eliminar
-            </button>
-            <Button className='btn estilo-botonAñadir1' onClick={(ev) => handleShow(ev, usuario)}>
-        Editar
-      </Button>
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
+        const index = users.findIndex(user => user.id === selectedUser.id);
+        const updatedUsers = [...users];
+        updatedUsers[index] = selectedUser
+        setUsers(updatedUsers);
+        localStorage.setItem('Usuarios', JSON.stringify(updatedUsers));
+        handleClose();
+    };
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar Usuario</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Usuario</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" value={dataUser?.nombre} 
-        onClick={(ev) => handleShow(ev)}
-        />
-      </Form.Group>
+    const handleDelete = (userId) => {
+        const updatedUsers = users.filter(user => user.id !== userId);
+        setUsers(updatedUsers);
+        localStorage.setItem('Usuarios', JSON.stringify(updatedUsers));
+    };
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Role</Form.Label>
-        <Form.Control type="text" placeholder="Password" value={dataUser?.role} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Enviar
-      </Button>
-    </Form>
-        </Modal.Body>
-      </Modal>
-          </td>
-        </tr>
-        )
-        )}
-      </tbody>
-    </Table>
+    return (
+        <>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Role</th>
+                        <th>Eliminar/Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map((usuario) => (
+                        <tr key={usuario.id}>
+                            <td>{usuario.id}</td>
+                            <td>{usuario.nombre}</td>
+                            <td>{usuario.role}</td>
+                            <td>
+                                <Button
+                                    className='btn estilo-botonAñadir1 mx-2'
+                                    onClick={() => handleDelete(usuario.id)}
+                                    disabled={usuario.role === 'Admin'}
+                                >
+                                    Eliminar
+                                </Button>
+                                <Button className='btn estilo-botonAñadir1' onClick={() => handleShow(usuario)}>
+                                    Editar
+                                </Button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
 
-    </>
-    
-  );
+            <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Editar Usuario</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Usuario</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Nombre de usuario"
+                                value={selectedUser?.nombre || ''}
+                                onChange={handleChange}
+                                name='nombre'
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Role</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Rol"
+                                value={selectedUser?.role || ''}
+                                onChange={handleChange}
+                                name='role'
+                            />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Enviar
+                        </Button>
+                    </Form>
+                </Modal.Body>
+            </Modal>
+        </>
+    );
 }
 
-
-export default AdminUserPage
+export default AdminUserPage;
