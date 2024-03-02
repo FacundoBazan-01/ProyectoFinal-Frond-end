@@ -8,6 +8,7 @@ import ProductoPage from "./pages/ProductoPage";
 import CarritoPage from "./pages/CarritoPage";
 import LoginPage from "./pages/LoginPage";
 import UserPage from "./pages/UserPage";
+import FooterC from "./components/FooterC";
 const App = () => {
 	return (
 		<>
@@ -24,7 +25,7 @@ const App = () => {
 					<Route path='/usuario' element={<UserPage />} />
 				</Routes>
 			</BrowserRouter>
-			
+			<FooterC/>
 		</>
 	);
 };

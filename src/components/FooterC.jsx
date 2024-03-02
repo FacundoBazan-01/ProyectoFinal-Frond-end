@@ -5,13 +5,13 @@ import "../css/Footer.css"
 
 const FooterC = () => {
   return (
-    <Container fluid className='footer-color'>
+    <Container fluid className='footer-color mt-5'>
       <Row>
-        <Col sm={12} md={3} lg={3} className='text-center mt-4'>
-          <a href="#">
+      <Col sm={12} md={3} lg={3} className='text-center mt-4 logo-container'>
+         <a href="#" className='position-relative'>
           <GiOppositeHearts className='logoCorazon' />
-          </a>
-       
+          <p className='logo-text'>Indumentaria G4</p>
+        </a>
         </Col>
         <Col sm={12} md={3} lg={3} className='d-flex mt-4 mx-auto flex-column text-center text-md-start'>
           <p className='tienda-style text-dark'>Quick Links</p>
