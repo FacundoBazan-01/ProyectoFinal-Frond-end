@@ -1,5 +1,6 @@
 import Table from "react-bootstrap/Table";
 
+
 const CarritoPage = () => {
   const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
 

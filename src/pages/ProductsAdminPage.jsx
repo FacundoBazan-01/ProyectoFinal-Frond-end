@@ -14,31 +14,6 @@ const AdminUserPage = () => {
         setSelectedUser(null); 
     };
 
-    const handleShow = (usuario) => {
-        setSelectedUser(usuario);
-        setShowModal(true);
-    };
-
-    const handleChange = (ev) => {
-        setSelectedUser({ ...selectedUser, [ev.target.name]: ev.target.value });
-    };
-
-    const handleSubmit = (ev) => {
-        ev.preventDefault();
-        const index = users.findIndex(user => user.id === selectedUser.id);
-        const updatedUsers = [...users];
-        updatedUsers[index] = selectedUser
-        setUsers(updatedUsers);
-        localStorage.setItem('Usuarios', JSON.stringify(updatedUsers));
-        handleClose();
-    };
-
-    const handleDelete = (userId) => {
-        const updatedUsers = users.filter(user => user.id !== userId);
-        setUsers(updatedUsers);
-        localStorage.setItem('Usuarios', JSON.stringify(updatedUsers));
-    };
-
     return (
         <>
             <Table striped bordered hover>
@@ -51,7 +26,7 @@ const AdminUserPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((usuario) => (
+                    {users.map((productos) => (
                         <tr key={usuario.id}>
                             <td>{usuario.id}</td>
                             <td>{usuario.nombre}</td>

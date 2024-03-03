@@ -9,6 +9,8 @@ import CarritoPage from "./pages/CarritoPage";
 import LoginPage from "./pages/LoginPage";
 import UserPage from "./pages/UserPage";
 import FooterC from "./components/FooterC";
+import UsersAdminPage from "./pages/UsersAdminPage";
+
 const App = () => {
 	return (
 		<>
@@ -23,6 +25,7 @@ const App = () => {
 					<Route path='/producto/:id' element={<ProductoPage />} />
 					<Route path='/cart' element={<CarritoPage />} />
 					<Route path='/usuario' element={<UserPage />} />
+					<Route path='/Admin' element={<UsersAdminPage />} />
 				</Routes>
 			</BrowserRouter>
 			<FooterC/>
@@ -30,3 +33,4 @@ const App = () => {
 	);
 };
 export default App;
+
