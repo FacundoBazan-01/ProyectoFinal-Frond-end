@@ -1,53 +1,54 @@
-.logoCorazon {
+.logo-container {
+    position: relative;
+  }
+  
+  .logoCorazon {
     width: 80px;
     height: auto;
     color: rgb(90, 7, 168);
   }
-.qr-style{
+  
+  .logo-text {
+    position: absolute;
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+  }
+  .qr-style {
     height: 80px;
-    border-radius: 80%;
-}
-.footer-color{
+    border-radius: 50%; 
+  }
+  
+  .footer-color {
     background-color: rgb(166, 116, 213);
     width: 100%;
     text-align: center;
-    position: absolute;
-    width: 100%;
-
-    position: fixed;
-    bottom: 0;
-    
- 
-
-}
-.footer-style{
-    height: 130px;
-    border-radius: 80%;
-    margin: 0px 80px;
-}
-.tienda-style{
+    padding: 20px 0; 
+  }
+  
+  .copy-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  
+  .tienda-style {
     font-weight: bold;
     font-size: 15px;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    padding: 0px 25px;
-    margin: 0px 3px;
-}
-.copy-style{
-    display: flex;
-    justify-content: center;
-}
-
-@media(max-width:767){
-    .style-colum{
-        flex-direction: column;
-    }
-}
-
-.footer-color {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 5px 15px; 
+    margin: 5px; 
   }
-
   
+ 
+  
+  @media (max-width: 767px) {
+    .style-colum {
+      flex-direction: column;
+    }
+  }
