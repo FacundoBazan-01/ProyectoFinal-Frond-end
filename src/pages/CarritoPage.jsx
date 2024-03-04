@@ -1,51 +1,67 @@
-import Table from "react-bootstrap/Table";
-
+import React, { useState } from 'react';
+import Table from 'react-bootstrap/Table';
 
 const CarritoPage = () => {
-  const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
   const deleteProdCart = (id) => {
-    const confirmDeleteProductCart = confirm(
-      "Estas seguro de que quieres eliminar este producto del Carrito?"
+    const confirmDeleteProductCart = window.confirm(
+      "¿Estás seguro de que quieres eliminar este producto del Carrito?"
     );
 
     if (confirmDeleteProductCart) {
-      const productFilterCart = cartLS.filter((prod) => prod.id !== id);
+      const productFilterCart = cart.filter((prod) => prod.id !== id);
+      setCart(productFilterCart);
       localStorage.setItem("cart", JSON.stringify(productFilterCart));
-      location.reload();
     }
   };
 
+  const updateQuantity = (id, newQuantity) => {
+    const updatedCart = cart.map((product) =>
+      product.id === id
+        ? {
+            ...product,
+            cantidad: parseInt(newQuantity, 10) || 0,
+            total: (parseFloat(product.precio) || 0) * (parseInt(newQuantity, 10) || 0),
+          }
+        : product
+    );
 
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
 
   return (
     <>
-      {cartLS.length > 0 ? (
+      {cart.length > 0 ? (
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>ID</th>
               <th>Nombre</th>
               <th>Precio</th>
+              <th>Talle</th>
               <th>Cantidad</th>
               <th>Total</th>
-              <th>Elimiar Productos Carrito</th>
+              <th>Eliminar Producto del Carrito</th>
             </tr>
           </thead>
           <tbody>
-            {cartLS.map((producto) => (
+            {cart.map((producto) => (
               <tr key={producto.id}>
                 <td>{producto.id}</td>
                 <td>{producto.nombre}</td>
                 <td>{producto.precio}</td>
-                <td>{producto.canti}</td>
-                <td>{producto.precio}</td>
+                <td>{producto.talle}</td>
                 <td>
-                  <input type="number" className="w-25" value={1} />
+                  <input
+                    type="number"
+                    className="w-25"
+                    value={producto.cantidad}
+                    onChange={(e) => updateQuantity(producto.id, e.target.value)}
+                  />
                 </td>
-                <td>
-                  <p>{producto.precio}</p>
-                </td>
+                <td>{producto.total}</td>
                 <td className="d-flex justify-content-center">
                   <button
                     className="btn btn-outline-danger"
@@ -60,11 +76,11 @@ const CarritoPage = () => {
         </Table>
       ) : (
         <h1 className="text-center py-5">
-          No hay productos en el Carrito por el momento!!!
+          ¡No hay productos en el Carrito por el momento!
         </h1>
       )}
     </>
   );
 };
 
-export default CarritoPage
+export default CarritoPage;
