@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import UserPage from "./pages/UserPage";
 import FooterC from "./components/FooterC";
 import UsersAdminPage from "./pages/UsersAdminPage";
+import ProductsAdminPage from "./pages/ProductsAdminPage";
 
 const App = () => {
 	return (
@@ -25,7 +26,8 @@ const App = () => {
 					<Route path='/producto/:id' element={<ProductoPage />} />
 					<Route path='/cart' element={<CarritoPage />} />
 					<Route path='/usuario' element={<UserPage />} />
-					<Route path='/Admin' element={<UsersAdminPage />} />
+					<Route path='/AdminUser' element={<UsersAdminPage />} />
+					<Route path='/AdminProduct' element={<ProductsAdminPage />} />
 				</Routes>
 			</BrowserRouter>
 			<FooterC/>
