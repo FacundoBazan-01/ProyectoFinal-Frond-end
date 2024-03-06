@@ -14,32 +14,30 @@ const ProductoPage = () => {
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
   const [alerta, setAlerta] = useState(null);
 
-  const agregarProducto = (producto) => {
-    const cartLs = JSON.parse(localStorage.getItem("cart")) || [];
+  const agregarProducto = (producto, tipo) => {
+    const key = tipo === 'cart' ? 'cart' : 'favorites';
+    const productosLs = JSON.parse(localStorage.getItem(key)) || [];
 
-    
-    const existeEnCarrito = cartLs.some(item => item.id === producto.id && item.talle === talleSeleccionado);
+    const existeEnProductos = productosLs.some(item => item.id === producto.id && item.talle === talleSeleccionado);
 
-    if (existeEnCarrito) {
-      setAlerta("Este producto ya está en el carrito con el mismo tamaño.");
+    if (existeEnProductos) {
+      setAlerta(`Este producto ya está en ${tipo === 'cart' ? 'el carrito' : 'favoritos'} con el mismo tamaño.`);
     } else {
-     
-      const productoEnCarrito = {
+      const productoEnProductos = {
         id: producto.id,
         nombre: producto.nombre,
         precio: producto.precio,
         talle: talleSeleccionado,
       };
 
-      const nuevoCarrito = [...cartLs, productoEnCarrito];
-      localStorage.setItem("cart", JSON.stringify(nuevoCarrito));
+      const nuevosProductos = [...productosLs, productoEnProductos];
+      localStorage.setItem(key, JSON.stringify(nuevosProductos));
 
-      setAlerta("Producto añadido al carrito correctamente.");
+      setAlerta(`Producto añadido a ${tipo === 'cart' ? 'el carrito' : 'favoritos'} correctamente.`);
     }
   };
 
   const handleChangeTalle = (talle) => {
-  
     setTalleSeleccionado(talle);
   };
 
@@ -73,10 +71,9 @@ const ProductoPage = () => {
                   </ToggleButton>
                 </ToggleButtonGroup>
               </div>
-            
               <div className='text-center mt-5 '>
-                <button className='btn estilo-botonAñadir1 me-2' onClick={() => agregarProducto(producto)}>Añadir al carrito</button>
-                <button className='btn estilo-botonAñadir2'>Añadir a favoritos</button>
+                <button className='btn estilo-botonAñadir1 me-2' onClick={() => agregarProducto(producto, 'cart')}>Añadir al carrito</button>
+                <button className='btn estilo-botonAñadir2' onClick={() => agregarProducto(producto, 'favorites')}>Añadir a favoritos</button>
               </div>
               {alerta && <div className="alert alert-success mt-3">{alerta}</div>}
             </div>
