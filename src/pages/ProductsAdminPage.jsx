@@ -52,6 +52,7 @@ const AdminProductPage = () => {
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Precio</th>
+                        <th>Imagen</th>
                         <th>Editar/Eliminar</th>
                     </tr>
                 </thead>
@@ -61,6 +62,7 @@ const AdminProductPage = () => {
                             <td>{product.id}</td>
                             <td>{product.nombre}</td>
                             <td>{product.precio}</td>
+                            <td><img src={product.img} alt={product.nombre} style={{ width: '100px' }} /></td>
                             <td>
                                 <Button className='btn estilo-botonAñadir1 mx-2' onClick={() => handleDelete(product.id)}>
                                     Eliminar
@@ -101,6 +103,18 @@ const AdminProductPage = () => {
                                 name='precio'
                             />
                         </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>URL de la imagen</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="URL de la imagen"
+                                value={selectedProduct?.img || ''}
+                                onChange={handleChange}
+                                name='img'
+                            />
+                        </Form.Group>
+
                         <Button variant="primary" type="submit">
                             Enviar
                         </Button>
