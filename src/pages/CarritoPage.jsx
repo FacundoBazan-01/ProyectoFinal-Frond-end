@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import Table from 'react-bootstrap/Table';
+import React, { useState } from "react";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const CarritoPage = () => {
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
+  const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
   const deleteProdCart = (id) => {
     const confirmDeleteProductCart = window.confirm(
@@ -10,49 +13,36 @@ const CarritoPage = () => {
     );
 
     if (confirmDeleteProductCart) {
-      const productFilterCart = cart.filter((prod) => prod.id !== id);
-      setCart(productFilterCart);
+      const productFilterCart = cartLS.filter((prod) => prod.id !== id);
       localStorage.setItem("cart", JSON.stringify(productFilterCart));
+      window.location.reload(); // Recargar la página para reflejar los cambios
     }
   };
 
-  const updateQuantity = (id, newQuantity) => {
-    const updatedCart = cart.map((product) =>
-      product.id === id
-        ? {
-            ...product,
-            cantidad: parseInt(newQuantity, 10) || 0,
-            total: (parseFloat(product.precio) || 0) * (parseInt(newQuantity, 10) || 0),
-          }
-        : product
-    );
-
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  const handleCompra = (producto) => {
+    setProductoSeleccionado(producto);
   };
 
   return (
     <>
-      {cart.length > 0 ? (
+      {cartLS.length > 0 ? (
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>ID</th>
               <th>Nombre</th>
               <th>Precio</th>
-              <th>Talle</th>
               <th>Cantidad</th>
-              <th>Total</th>
-              <th>Eliminar Producto del Carrito</th>
+              <th>Eliminar del Carrito</th>
+              <th>Comprar</th>
             </tr>
           </thead>
           <tbody>
-            {cart.map((producto) => (
+            {cartLS.map((producto) => (
               <tr key={producto.id}>
                 <td>{producto.id}</td>
                 <td>{producto.nombre}</td>
                 <td>{producto.precio}</td>
-                <td>{producto.talle}</td>
                 <td>
                   <input
                     type="number"
@@ -61,14 +51,24 @@ const CarritoPage = () => {
                     onChange={(e) => updateQuantity(producto.id, e.target.value)}
                   />
                 </td>
-                <td>{producto.total}</td>
-                <td className="d-flex justify-content-center">
-                  <button
-                    className="btn btn-outline-danger"
+                <td>
+                  <Button
+                  className="estilo-botonAñadir1"
+                    variant="danger"
                     onClick={() => deleteProdCart(producto.id)}
                   >
                     Eliminar
-                  </button>
+                  </Button>
+                </td>
+                <td>
+                  <Link to="/404">
+                    <Button className="estilo-botonAñadir1"
+                      variant="primary"
+                      onClick={() => handleCompra(producto)}
+                    >
+                      Comprar
+                    </Button>
+                  </Link>
                 </td>
               </tr>
             ))}
