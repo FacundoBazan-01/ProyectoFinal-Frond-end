@@ -1,13 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
 const AdminUserPage = () => {
-    const [users, setUsers] = useState(JSON.parse(localStorage.getItem('Usuarios')) || []);
+    const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+        const storedUsers = JSON.parse(localStorage.getItem('Usuarios')) || [];
+        if (storedUsers.length === 0) {
+            // Si no hay usuarios almacenados, guardar el primer usuario como administrador
+            const firstUser = {
+                id: 1,
+                nombre: 'Admin',
+                role: 'Admin'
+            };
+            setUsers([firstUser]);
+            localStorage.setItem('Usuarios', JSON.stringify([firstUser]));
+        } else {
+            setUsers(storedUsers);
+        }
+    }, []);
 
     const handleClose = () => {
         setShowModal(false);
@@ -27,7 +43,7 @@ const AdminUserPage = () => {
         ev.preventDefault();
         const index = users.findIndex(user => user.id === selectedUser.id);
         const updatedUsers = [...users];
-        updatedUsers[index] = selectedUser
+        updatedUsers[index] = selectedUser;
         setUsers(updatedUsers);
         localStorage.setItem('Usuarios', JSON.stringify(updatedUsers));
         handleClose();
@@ -60,7 +76,7 @@ const AdminUserPage = () => {
                                 <Button
                                     className='btn estilo-botonAñadir1 mx-2'
                                     onClick={() => handleDelete(usuario.id)}
-                                    disabled={usuario.role === 'Admin' && true}
+                                    disabled={usuario.role === 'Admin'}
                                 >
                                     Eliminar
                                 </Button>

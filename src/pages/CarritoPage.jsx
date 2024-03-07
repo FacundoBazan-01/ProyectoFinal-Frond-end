@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
-const CarritoPage = () => {
+const CarritoPage = ({ talleSeleccionado }) => {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
   const deleteProdCart = (id) => {
@@ -22,13 +24,17 @@ const CarritoPage = () => {
         ? {
             ...product,
             cantidad: parseInt(newQuantity, 10) || 0,
-            total: (parseFloat(product.precio) || 0) * (parseInt(newQuantity, 10) || 0),
+            talle: talleSeleccionado // Aquí actualizamos el talle seleccionado
           }
         : product
     );
 
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const handleCompra = (producto) => {
+    // Implementa la lógica para realizar la compra del producto aquí
   };
 
   return (
@@ -42,8 +48,8 @@ const CarritoPage = () => {
               <th>Precio</th>
               <th>Talle</th>
               <th>Cantidad</th>
-              <th>Total</th>
               <th>Eliminar Producto del Carrito</th>
+              <th>Comprar</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +67,6 @@ const CarritoPage = () => {
                     onChange={(e) => updateQuantity(producto.id, e.target.value)}
                   />
                 </td>
-                <td>{producto.total}</td>
                 <td className="d-flex justify-content-center">
                   <button
                     className="btn btn-outline-danger"
@@ -69,6 +74,16 @@ const CarritoPage = () => {
                   >
                     Eliminar
                   </button>
+                </td>
+                <td>
+                  <Link to="/confirmar-compra">
+                    <Button
+                      variant="primary"
+                      onClick={() => handleCompra(producto)}
+                    >
+                      Comprar
+                    </Button>
+                  </Link>
                 </td>
               </tr>
             ))}

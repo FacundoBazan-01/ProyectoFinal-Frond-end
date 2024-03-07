@@ -12,8 +12,21 @@ const ProductoPage = () => {
   const prodFilter = arrayProductos.filter((producto) => producto.id === Number(id));
 
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
+  const [cantidad, setCantidad] = useState(1); // Estado para almacenar la cantidad
   const [alerta, setAlerta] = useState(null);
 
+  const handleChangeCantidad = (e) => {
+    setCantidad(e.target.value);
+  };
+
+  const handleChangeTalle = (talle) => {
+    setTalleSeleccionado(talle);
+  };
+
+  const agregarProducto = (producto) => {
+    const cartLs = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existeEnCarrito = cartLs.some(item => item.id === producto.id && item.talle === talleSeleccionado);
   const agregarProducto = (producto, tipo) => {
     const key = tipo === 'cart' ? 'cart' : 'favorites';
     const productosLs = JSON.parse(localStorage.getItem(key)) || [];
@@ -23,11 +36,13 @@ const ProductoPage = () => {
     if (existeEnProductos) {
       setAlerta(`Este producto ya está en ${tipo === 'cart' ? 'el carrito' : 'favoritos'} con el mismo tamaño.`);
     } else {
+      const productoEnCarrito = {
       const productoEnProductos = {
         id: producto.id,
         nombre: producto.nombre,
         precio: producto.precio,
         talle: talleSeleccionado,
+        cantidad: parseInt(cantidad), // Almacenar la cantidad
       };
 
       const nuevosProductos = [...productosLs, productoEnProductos];
@@ -37,6 +52,28 @@ const ProductoPage = () => {
     }
   };
 
+  const agregarAFavoritos = (producto) => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    // Verificar si el producto ya está en favoritos
+    const existeEnFavoritos = favorites.some(item => item.id === producto.id);
+
+    if (existeEnFavoritos) {
+      setAlerta("Este producto ya está en favoritos.");
+    } else {
+      // Agregar el producto a la lista de favoritos
+      const productoEnFavoritos = {
+        id: producto.id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        talle: talleSeleccionado, // Puedes ajustar esto si el talle seleccionado es relevante para los favoritos
+      };
+
+      const nuevosFavoritos = [...favorites, productoEnFavoritos];
+      localStorage.setItem("favorites", JSON.stringify(nuevosFavoritos));
+
+      setAlerta("Producto añadido a favoritos correctamente.");
+    }
   const handleChangeTalle = (talle) => {
     setTalleSeleccionado(talle);
   };
@@ -71,7 +108,13 @@ const ProductoPage = () => {
                   </ToggleButton>
                 </ToggleButtonGroup>
               </div>
+              <div className='text-center estilo-botones'>
+                <h5>CANTIDAD</h5>
+                <input type="number" className="w-25" value={cantidad} onChange={handleChangeCantidad} />
+              </div>
               <div className='text-center mt-5 '>
+                <button className='btn estilo-botonAñadir1 me-2' onClick={() => agregarProducto(producto)}>Añadir al carrito</button>
+                <button className='btn estilo-botonAñadir2' onClick={() => agregarAFavoritos(producto)}>Añadir a favoritos</button>
                 <button className='btn estilo-botonAñadir1 me-2' onClick={() => agregarProducto(producto, 'cart')}>Añadir al carrito</button>
                 <button className='btn estilo-botonAñadir2' onClick={() => agregarProducto(producto, 'favorites')}>Añadir a favoritos</button>
               </div>
