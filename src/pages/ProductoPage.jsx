@@ -46,6 +46,30 @@ const ProductoPage = () => {
     }
   };
 
+  const agregarAFavoritos = (producto) => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    // Verificar si el producto ya está en favoritos
+    const existeEnFavoritos = favorites.some(item => item.id === producto.id);
+
+    if (existeEnFavoritos) {
+      setAlerta("Este producto ya está en favoritos.");
+    } else {
+      // Agregar el producto a la lista de favoritos
+      const productoEnFavoritos = {
+        id: producto.id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        talle: talleSeleccionado, // Puedes ajustar esto si el talle seleccionado es relevante para los favoritos
+      };
+
+      const nuevosFavoritos = [...favorites, productoEnFavoritos];
+      localStorage.setItem("favorites", JSON.stringify(nuevosFavoritos));
+
+      setAlerta("Producto añadido a favoritos correctamente.");
+    }
+  };
+
   return (
     <React.Fragment>
       {prodFilter.map((producto) => (
@@ -82,7 +106,7 @@ const ProductoPage = () => {
               </div>
               <div className='text-center mt-5 '>
                 <button className='btn estilo-botonAñadir1 me-2' onClick={() => agregarProducto(producto)}>Añadir al carrito</button>
-                <button className='btn estilo-botonAñadir2'>Añadir a favoritos</button>
+                <button className='btn estilo-botonAñadir2' onClick={() => agregarAFavoritos(producto)}>Añadir a favoritos</button>
               </div>
               {alerta && <div className="alert alert-success mt-3">{alerta}</div>}
             </div>
