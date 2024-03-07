@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
-const FavoritoPage = () => {
-  const [favoritos, setFavoritos] = useState(JSON.parse(localStorage.getItem("favoritos")) || []);
 
-  const deleteFavorito = (id) => {
-    const confirmDeleteFavorito = window.confirm(
+const FavPage = ({ talleSeleccionado }) => {
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites")) || []);
+
+  const removeFromFavorites = (id) => {
+    const confirmRemoveFromFavorites = window.confirm(
       "¿Estás seguro de que quieres eliminar este producto de Favoritos?"
     );
 
-    if (confirmDeleteFavorito) {
-      const updatedFavoritos = favoritos.filter((producto) => producto.id !== id);
-      setFavoritos(updatedFavoritos);
-      localStorage.setItem("favoritos", JSON.stringify(updatedFavoritos));
+    if (confirmRemoveFromFavorites) {
+      const updatedFavorites = favorites.filter((product) => product.id !== id);
+      setFavorites(updatedFavorites);
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     }
   };
 
   return (
     <>
-      {favoritos.length > 0 ? (
+      {favorites.length > 0 ? (
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -27,22 +30,33 @@ const FavoritoPage = () => {
               <th>Precio</th>
               <th>Talle</th>
               <th>Eliminar de Favoritos</th>
+              <th>Comprar</th>
             </tr>
           </thead>
           <tbody>
-            {favoritos.map((producto) => (
-              <tr key={producto.id}>
-                <td>{producto.id}</td>
-                <td>{producto.nombre}</td>
-                <td>{producto.precio}</td>
-                <td>{producto.talle}</td>
+            {favorites.map((product) => (
+              <tr key={product.id}>
+                <td>{product.id}</td>
+                <td>{product.nombre}</td>
+                <td>{product.precio}</td>
+                <td>{product.talle}</td>
                 <td className="d-flex justify-content-center">
                   <button
                     className="btn btn-outline-danger"
-                    onClick={() => deleteFavorito(producto.id)}
+                    onClick={() => removeFromFavorites(product.id)}
                   >
                     Eliminar
                   </button>
+                </td>
+                <td>
+                  <Link to="/404">
+                    <Button
+                      variant="primary"
+                      onClick={() => handleCompra(producto)}
+                    >
+                      Comprar
+                    </Button>
+                  </Link>
                 </td>
               </tr>
             ))}
@@ -57,4 +71,4 @@ const FavoritoPage = () => {
   );
 };
 
-export default FavoritoPage;
+export default FavPage;
