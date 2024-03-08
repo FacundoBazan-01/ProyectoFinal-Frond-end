@@ -12,7 +12,7 @@ const ProductoPage = () => {
   const prodFilter = arrayProductos.filter((producto) => producto.id === Number(id));
 
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
-  const [cantidad, setCantidad] = useState(1); // Estado para almacenar la cantidad
+  const [cantidad, setCantidad] = useState(1); 
   const [alerta, setAlerta] = useState(null);
 
   const handleChangeCantidad = (e) => {
