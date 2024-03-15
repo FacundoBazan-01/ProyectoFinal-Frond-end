@@ -12,7 +12,6 @@ const AdminUserPage = () => {
     useEffect(() => {
         const storedUsers = JSON.parse(localStorage.getItem('Usuarios')) || [];
         if (storedUsers.length === 0) {
-            // Si no hay usuarios almacenados, guardar el primer usuario como administrador
             const firstUser = {
                 id: 1,
                 nombre: 'Admin',

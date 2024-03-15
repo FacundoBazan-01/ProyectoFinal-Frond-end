@@ -24,7 +24,7 @@ const CarritoPage = ({ talleSeleccionado }) => {
         ? {
             ...product,
             cantidad: parseInt(newQuantity, 10) || 0,
-            talle: talleSeleccionado // Aquí actualizamos el talle seleccionado
+            talle: talleSeleccionado 
           }
         : product
     );
@@ -33,9 +33,6 @@ const CarritoPage = ({ talleSeleccionado }) => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  const handleCompra = (producto) => {
-    // Implementa la lógica para realizar la compra del producto aquí
-  };
 
   return (
     <>

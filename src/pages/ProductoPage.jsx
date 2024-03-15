@@ -12,7 +12,7 @@ const ProductoPage = () => {
   const prodFilter = arrayProductos.filter((producto) => producto.id === Number(id));
 
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
-  const [cantidad, setCantidad] = useState(1); // Estado para almacenar la cantidad
+  const [cantidad, setCantidad] = useState(1); 
   const [alerta, setAlerta] = useState(null);
 
   const handleChangeCantidad = (e) => {
@@ -36,7 +36,7 @@ const ProductoPage = () => {
         nombre: producto.nombre,
         precio: producto.precio,
         talle: talleSeleccionado,
-        cantidad: parseInt(cantidad), // Almacenar la cantidad
+        cantidad: parseInt(cantidad), 
       };
 
       const nuevoCarrito = [...cartLs, productoEnCarrito];
@@ -49,18 +49,18 @@ const ProductoPage = () => {
   const agregarAFavoritos = (producto) => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    // Verificar si el producto ya está en favoritos
+   
     const existeEnFavoritos = favorites.some(item => item.id === producto.id);
 
     if (existeEnFavoritos) {
       setAlerta("Este producto ya está en favoritos.");
     } else {
-      // Agregar el producto a la lista de favoritos
+
       const productoEnFavoritos = {
         id: producto.id,
         nombre: producto.nombre,
         precio: producto.precio,
-        talle: talleSeleccionado, // Puedes ajustar esto si el talle seleccionado es relevante para los favoritos
+        talle: talleSeleccionado,
       };
 
       const nuevosFavoritos = [...favorites, productoEnFavoritos];
